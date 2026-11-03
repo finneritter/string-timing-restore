@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "stringtiming",
+	"version": "${version}",
+	"name": "String Timing Restore",
+	"description": "Makes placed string (tripwire) power and depower like it did in 1.21.11, fixing farms and dupers that broke in 26.2+.",
+	"authors": ["finneritter"],
+	"contact": {
+		"homepage": "https://github.com/finneritter/string-timing-restore",
+		"sources": "https://github.com/finneritter/string-timing-restore",
+		"issues": "https://github.com/finneritter/string-timing-restore/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/stringtiming/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": ["io.github.finneritter.stringtiming.StringTiming"]
+	},
+	"mixins": ["stringtiming.mixins.json"],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "26.3",
+		"java": ">=25"
+	}
+}

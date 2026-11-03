@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "io.github.finneritter.stringtiming.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"mixins": ["TripWireBlockMixin"],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

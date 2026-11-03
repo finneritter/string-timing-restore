@@ -1,0 +1,14 @@
+{
+	"schemaVersion": 1,
+	"id": "stringtiming-test",
+	"version": "1.0.0",
+	"name": "String Timing Restore GameTests",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-gametest": ["io.github.finneritter.stringtiming.test.StringTimingGameTests"]
+	},
+	"depends": {
+		"stringtiming": "*",
+		"fabric-gametest-api-v1": "*"
+	}
+}

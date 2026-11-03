@@ -1,0 +1,57 @@
+plugins {
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+// GameTests live in their own source set; Fabric API is a test-only dependency (not in the release jar).
+fabricApi {
+	configureTests {
+		createSourceSet = true
+		modId = "stringtiming-test"
+		enableGameTests = true
+		enableClientGameTests = false
+		eula = true
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	gametestImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+// T10 (see TESTING.md): same GameTests with the kill switch set; tests assert vanilla 26.3 behavior in that mode.
+loom {
+	runs {
+		gameTest {
+			vmArg "-Dfabric-api.gametest.report-file=${project.layout.buildDirectory.get()}/gametest-active.xml"
+		}
+		gametestDisabled {
+			inherit gameTest
+			name "Game Test (kill switch)"
+			vmArg "-Dstringtiming.disable=true"
+			vmArg "-Dfabric-api.gametest.report-file=${project.layout.buildDirectory.get()}/gametest-disabled.xml"
+			runDir "build/gametest-disabled"
+		}
+	}
+}
+
+processResources {
+	def version = project.version
+	inputs.property "version", version
+	filesMatching("fabric.mod.json") {
+		expand "version": version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+	from("LICENSE")
+}
