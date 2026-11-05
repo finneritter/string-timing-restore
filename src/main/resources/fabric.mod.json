@@ -4,11 +4,11 @@
 	"version": "${version}",
 	"name": "String Timing Restore",
 	"description": "Makes placed string (tripwire) power and depower like it did in 1.21.11, fixing farms and dupers that broke in 26.2+.",
-	"authors": ["finneritter"],
+	"authors": ["Izuulo"],
 	"contact": {
-		"homepage": "https://github.com/finneritter/string-timing-restore",
-		"sources": "https://github.com/finneritter/string-timing-restore",
-		"issues": "https://github.com/finneritter/string-timing-restore/issues"
+		"homepage": "https://github.com/Izuulo/string-timing-restore",
+		"sources": "https://github.com/Izuulo/string-timing-restore",
+		"issues": "https://github.com/Izuulo/string-timing-restore/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/stringtiming/icon.png",
